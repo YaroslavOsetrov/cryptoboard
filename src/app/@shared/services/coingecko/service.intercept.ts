@@ -1,29 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpHeaders, HttpEvent, HttpInterceptor} from '@angular/common/http';
-import { CoinMarketCapService } from './index';
+import { CoinGeckoService } from './index';
 import { Observable } from 'rxjs';
 
-const API = {
-  KEY:"5aaa7fe5-1885-420f-a63b-4dff02be5ea8",
-  ENDPOINT:"https://api.coingecko.com/api/v3"
-};
-
+export const API_ENDPOINT = "https://api.coingecko.com/api/v3";
 
 
 @Injectable()
-export class AuthInterceptor implements HttpInterceptor {
+export class CoinGeckoIntercept implements HttpInterceptor {
   
 
-  api_config = API;
+  api_endpoint = API_ENDPOINT;
   
-  constructor(coinmarketcapService: CoinMarketCapService) {}
+  constructor(private _coinGeckoService: CoinGeckoService) {}
   
 
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     request = request.clone({
-      url: `${this.api_config.ENDPOINT}/${request.url}`,
+      url: `${this.api_endpoint}/${request.url}`,
     });
     
     return next.handle(request);

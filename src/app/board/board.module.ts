@@ -8,20 +8,32 @@ import {BoardComponent} from './board.component';
 
 import {LineChartComponent} from './lineChart';
 
-@NgModule({
-    declarations: [
-        BoardComponent,
+import {HttpClientModule} from '@angular/common/http';
 
-        LineChartComponent
-    ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild([
-            { 
-                path: '', component: BoardComponent
-            }
-        ])
-    ]
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CoinGeckoService } from './../@shared/services/coingecko';
+
+import {CoinGeckoIntercept} from './../@shared/services/coingecko/service.intercept';
+
+@NgModule({
+	declarations: [
+		BoardComponent,
+		LineChartComponent
+	],
+	imports: [
+		CommonModule,
+		HttpClientModule,
+		RouterModule.forChild([
+			{ 
+				path: '', component: BoardComponent
+			}
+		]),
+	],
+	providers: [{
+		provide: HTTP_INTERCEPTORS,
+		useClass: CoinGeckoIntercept,
+		multi: true
+	}, CoinGeckoService],
 })
 export class BoardModule {
 

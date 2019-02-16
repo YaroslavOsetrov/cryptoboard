@@ -3,26 +3,14 @@ import { HttpClient } from '@angular/common/http';
 
 import {Observable} from 'rxjs';
 
+import {Currency} from './../../models/currency';
 
-
-export interface Currency{
-  id:string;
-  symbol:string;
-  name:string;
-	current_price?:number;
-	price_change_percentage_24h?:number;
-  market_data:{
-    current_price:{
-      usd:number;
-    }
-  }
-}
+import {CoinGeckoIntercept} from './service.intercept';
 
 @Injectable()
-export class CoinMarketCapService {
+export class CoinGeckoService {
 
-  constructor(private http: HttpClient) {       
-  }
+  constructor(private http: HttpClient) {       }
 
   getCurrency(code:string):Observable<Currency> {
     return this.http.get<Currency>('/coins/'+code, {
@@ -43,13 +31,12 @@ export class CoinMarketCapService {
   }
 
 
-  getCurrencyHistory(code:string, date:string):Observable<Currency>{
+	getCurrencyHistory(code:string, date:string):Observable<Currency>{
 		return this.http.get<Currency>('/coins/'+code.toLowerCase()+'/history', {
 				params:{
 					date:date
 				}
 		})
-
   }
 
 }
