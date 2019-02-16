@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: 'Muller';
+    src: url("./assets/fonts/muller/MullerLight.otf") format("opentype");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Muller';
+    src: url("./assets/fonts/muller/MullerRegular.otf") format("opentype");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Muller';
+    src: url("./assets/fonts/muller/MullerMedium.otf") format("opentype");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Muller';
+    src: url("./assets/fonts/muller/MullerBold.otf") format("opentype");
+    font-weight: 700;
+}
+
+@main-color:#2D2563;
+@main-color-lighter:#3C327D;
+
+@text-danger:#FF0000;
+@text-success:#55FF00;
+
+body{
+    background: @main-color;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1{
+    font-size: 5vw;
+}
+
+
+@import url('./assets/less/board.less');

@@ -1,0 +1,23 @@
+
+<div class="cryptoboard">
+  <h1>
+    TopCrypto
+  </h1>
+  <div class="container">
+    <div class="col" *ngFor="let item of currencies">
+      <div class="inner">
+        <div class="name">{{item.symbol}}/usd</div>
+        <div [ngClass]="{'success':item.price_change_percentage_24h > 0, 'danger':item.price_change_percentage_24h < 0}" class="price">
+          {{item.current_price|currency}}
+          <span class="percent">
+            {{item.price_change_percentage_24h|number}}%
+          </span>
+        </div>
+        <div class="chart">
+          <chart [chartId]="item.symbol" [data]="currenciesHistory[item.id]"></chart>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

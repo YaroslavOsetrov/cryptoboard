@@ -1,0 +1,127 @@
+
+.cryptoboard{
+    h1{
+        color: white;
+    }
+    padding:50px;
+    .container{
+        &:after{
+            display: block;
+            content: ' ';
+            clear: both;
+        }
+        .col{
+            color:white;
+            float:left;
+            .inner{
+                padding: 30px;
+                margin:15px;
+                background:@main-color-lighter;
+            
+                .name{
+                    text-transform: uppercase;
+                    font-size: 2vw;
+                }
+                .price{
+                    margin-top:30px;
+                    font-size: 4vw;
+                    font-weight: 700;
+                    .percent{
+                        font-size: 0.6em;
+                        display: block;
+                    }
+                    &.success{
+                        color:@text-success;
+                    }
+                    &.danger{
+                        color:@text-danger;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1921px) {
+  
+  .cryptoboard .container .col{
+    width: 20%;
+    .inner .price{
+        font-size: 3vw;
+    }
+  }
+}
+
+@media (min-width: 1281px) and (max-width:1920px) {
+  
+  .cryptoboard .container .col{
+      width: 33.3%
+  }
+  
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (max-width: 1280px) {
+  
+  //CSS
+  .cryptoboard .container .col{
+      width: 50%
+  }
+   .cryptoboard .container .col .inner .name{
+      font-size: 3vw;
+  }
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  //CSS
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+  //CSS
+  
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  
+  //CSS
+  
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+  //CSS
+  
+}
